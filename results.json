@@ -1,0 +1,23 @@
+import json
+
+results = {
+  "counts": {"train": len(train_df), "val": len(val_df), "test": len(test_df)},
+  "epochs": EPOCHS,
+  "losses": {
+    "train": train_losses,    # lista de floats
+    "val": val_losses         # lista de floats
+  },
+  "bleu": {
+    "rnn": float(bleu_rnn),           # asegúrate de convertir a float
+    "lstm": float(bleu_lstm),
+    "gru": float(bleu_gru),
+    "transformer": float(bleu_transform)
+  },
+  "examples": [
+    {"src": "hola, ¿cómo estás?", "pred": "bonjour ...", "ref": "bonjour ..."},
+    # agrega 2-4 ejemplos reales (pred/ref) para mostrar en la infografía
+  ]
+}
+
+with open("results.json","w",encoding="utf8") as f:
+    json.dump(results, f, ensure_ascii=False, indent=2)
