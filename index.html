@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infografía de Resultados — NMT</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Infografía de Resultados — Modelos NMT</h1>
+      <p class="subtitle">Comparativa: RNN, LSTM+Att, GRU+Att, Transformer — métricas y muestras</p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Conjunto</h3>
+        <p id="count-train">Train: —</p>
+        <p id="count-val">Val: —</p>
+        <p id="count-test">Test: —</p>
+      </div>
+
+      <div class="card">
+        <h3>Último BLEU (Transformer)</h3>
+        <p id="bleu-transform">—</p>
+      </div>
+
+      <div class="card">
+        <h3>Mejor modelo</h3>
+        <p id="best-model">—</p>
+      </div>
+
+      <div class="card">
+        <h3>Épocas</h3>
+        <p id="epochs">—</p>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <h4>Pérdida por Época (Train vs Val)</h4>
+        <canvas id="lossChart" height="220"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h4>BLEU por Modelo</h4>
+        <canvas id="bleuChart" height="220"></canvas>
+      </div>
+    </section>
+
+    <section class="translations">
+      <h4>Ejemplos de Traducción</h4>
+      <div id="examples" class="examples-grid">
+        <!-- tarjetas de ejemplo -->
+      </div>
+    </section>
+
+    <footer class="controls">
+      <input type="file" id="fileInput" accept=".json" />
+      <button id="btnApply">Cargar JSON y actualizar</button>
+      <small>O usa el JSON de ejemplo (placeholder) incluido.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
